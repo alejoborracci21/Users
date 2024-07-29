@@ -8,10 +8,14 @@
   }
 
   .label{
-    @apply p-2 m-4
+    @apply  p-2 m-4;
   }
 
   .input{
-    @apply bg-transparent text-center border-b border-white
-  }
+    @apply bg-transparent text-center border-b border-white placeholder-black
+ }
+
+ .btn{
+  @apply p-2 m-2 bg-blue-500 rounded-sm
+ }
 }
