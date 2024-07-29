@@ -2,9 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .form{
+    @apply flex flex-col items-center justify-center w-full;
+  }
 
-body{
-  border: 0;
-  margin: 0;
-  line-height: 0;
+  .label{
+    @apply p-2 m-4
+  }
+
+  .input{
+    @apply bg-transparent text-center border-b border-white
+  }
 }
