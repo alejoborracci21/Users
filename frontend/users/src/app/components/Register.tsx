@@ -15,15 +15,19 @@ export default function Register() {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm<Inputs>()
 
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+    reset()
+  };
 
   return (
-    <div className="flex flex-col w-[50%] h-[90%] bg-slate-400 rounded-sm items-center justify-center">
-      <h1 className="p-10">Registro de usuario</h1>
+    <div className="flex flex-col w-[50%] h-[90%] bg-slate-400 rounded-sm items-center justify-center text-sm">
+      <h1 className="text-2xl underline">Registro de usuario</h1>
       <form
         className="form flex flex-col w-full items-center"
         onSubmit={handleSubmit(onSubmit)}
@@ -35,7 +39,7 @@ export default function Register() {
             placeholder="Nombre completo"
             {...register("name", {required:true, minLength:2} )}
           />
-          {errors.name? <p role="alert">Nombre no valido</p> : ""}
+          {errors.name? <p role="alert" className="text-red-600">Ingrese un nombre válido</p> : ""}
         </label>
         <label className="label w-3/4 mb-4" htmlFor="email">
           <input
@@ -45,7 +49,7 @@ export default function Register() {
             {...register("email", {required:true})}
           />
 
-          {errors.email? <p role="alert">Email no valido</p> : ""}
+          {errors.email? <p role="alert" className="text-red-600">Ingrese un Email válido</p> : ""}
         </label>
         <label className="label w-3/4 mb-4" htmlFor="password">
           <input
@@ -54,10 +58,10 @@ export default function Register() {
             placeholder="Contraseña"
             {...register("password", {required: true, minLength:4})}
           />
-          {errors.password? <p role="alert">Ingrese una contraseña</p> : ""}
+          {errors.password? <p role="alert" className="text-red-600">Ingrese una contraseña segura</p> : ""}
         </label>
         <label className="label w-3/4 mb-4 items-center text-center p-1" htmlFor="image">
-          <h5 className="mb-2">Foto de perfil</h5>
+          <h5 className="mb-2 underline">Foto de perfil</h5>
           <input
             className="input w-full p-2 rounded"
             type="file"

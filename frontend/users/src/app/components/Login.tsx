@@ -10,7 +10,7 @@ export default function Login () {
             <label className="label" htmlFor="password">
               <input className="input" placeholder="Contraseña"></input>
             </label>
-
+            <button>Ingresar</button>
             <button className="btn" type="submit">Registrarse</button>
           </form>
         </div>
